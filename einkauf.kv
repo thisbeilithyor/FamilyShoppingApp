@@ -1,0 +1,76 @@
+MyScreenManager:
+    IdentifyWidget:
+    MainWidget:
+    NewItemScreen:
+
+
+<NewItemScreen>:
+    name: "newitem_screen"
+    MDBoxLayout:
+        size_hint: 1, .2
+        pos_hint: {"center_y": 0.5}
+        orientation: 'vertical'
+        MDTextField:
+            size_hint: .9, 0.5
+            pos_hint: {"center_x": 0.5}
+            id: artikel_input
+            hint_text: 'artikel'
+            multiline: False
+            halign:'center'
+            valign:'middle'
+
+        Button:        
+            background_color: 0, 1, 0, 1    
+            size_hint: .9, 0.5
+            pos_hint: {"center_x": 0.5}
+            text: "hinzufügen"
+            on_release: root.add_btn(artikel_input.text)
+
+    MDAnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        padding: [dp(5), 0, 0, dp(5)] 
+        MDIconButton:
+            size_hint: None, None
+            height: dp(50)
+            width: dp(75)
+            icon: "arrow-left"
+            on_release: root.back_btn()
+    
+    MDAnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        padding: [0, 0, 0, dp(5)] 
+        MDLabel:
+            size_hint: None, None
+            height: dp(50)
+            width: dp(150)
+            text: "software by scwg"
+
+<IdentifyWidget>:
+    orientation: 'vertical'
+    MDBoxLayout:
+        MDLabel:
+            color: 1, 0, 0, 1
+    MDBoxLayout:
+        size_hint: 1, .2
+        pos_hint: {"center_y": 0.5}
+        orientation: 'vertical'
+
+        MDTextField:
+            size_hint: .9, 0.5
+            pos_hint: {"center_x": 0.5}
+            id: text_input
+            hint_text: 'Vorname'
+            multiline: False
+            halign:'center'
+
+        Button: 
+            background_color: 0, 1, 0, 1           
+            size_hint: .9, 0.5
+            pos_hint: {"center_x": 0.5}
+            text: "fertig"
+            on_release: root.fertig_btn(text_input.text)
+
+<MainWidget>:
+    name: "main_screen"
